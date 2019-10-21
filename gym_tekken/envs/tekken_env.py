@@ -1,5 +1,5 @@
 import gym
-from gym omport error, spaces, utils
+from gym import error, spaces, utils
 from gym.utils import seeding
 
 class tekkenEnv(gym.env):
