@@ -34,3 +34,6 @@ class tekkenEnv(gym.env):
   
   def render(self, mode='human', close =False):
     #render the environment to a screen
+             
+  def close(self):
+     #close the environment
