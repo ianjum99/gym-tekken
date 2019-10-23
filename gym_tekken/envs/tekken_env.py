@@ -2,36 +2,8 @@ import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
 import numpy as np
-from PIL import ImageGrab
-imprt cv2
-import time
-import pyautogui
 
-"""
-for i in list(range(4))[::-1]:
-  print(i+1)
-  time.sleep(1)
-  
-  
 
-def processImg(orgnImg):
-  processedImg=cv2.cvtColor(orgnImg, cv2.COLOR_BGR2GRAY)#converting to gray as this simplifies values of pixels and can be processed by a CNR
-  processedImg=cv2.Canny(processedImg, threshold1=200, threshold2=300)
-  return processedImg
-  
-LastTime=time.time()
-while(True):
-  scrn= np.array(ImageGrab.grab(bbox=(0,40, 800, 640)))
-  newScrn=processImg(scrn)
-  
-  print('loop took {} seconds'.format(time.time()-LastTime))
-  LastTime=time.time()
-  cv2.imshow('window', newScrn)
-  #cv2.imshow('window2', cv2.cvtColor(scrn , cv2.COLOR_BGR2RGB)
-  if cv2.waitKey(25) & 0xFF == ord('q'):
-    cv2.destroyAllWindows()
-    break
-"""
 
 class tekkenEnv(gym.env):
   """A tekken 7 environment for OpenAI gym"""
@@ -41,15 +13,29 @@ class tekkenEnv(gym.env):
     super(tekkenEnv, self).__init__()
     #define action and observation space
     #must be gym.spaces objects
+    
+    self.action_space=np.array([])
+    
+    self.observation_space=np.arrange()
 
   def step(self, action):
     #execute one step in the environment at a  time
+    self._take_action()
+    self.status = self.env.step()
+    reward = self._get_reward()
+    ob = self.env.getState()
+    episode_over = self._reset(self)
+    return ob, reward, episode_over, {}
  
   def reset(self):
     #reset environment to an initial state
   
   def render(self, mode='human', close =False):
     #render the environment to a screen
+    pass
              
   def close(self):
      #close the environment
+      
+  def _get_reward(self):
+    #define conditions needed to obtain reward signal
