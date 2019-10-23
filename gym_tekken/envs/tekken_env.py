@@ -9,7 +9,12 @@ class tekkenEnv(gym.env):
   """A tekken 7 environment for OpenAI gym"""
   metadata = {'render.modes': ['human']}
   
-  def __init__(self):
+  def __init__(
+               self
+               game='tekken-7',
+               mode='none',
+               
+                ):
     super(tekkenEnv, self).__init__()
     #define action and observation space
     #must be gym.spaces objects
