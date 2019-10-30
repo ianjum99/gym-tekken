@@ -43,4 +43,9 @@ class tekkenEnv(gym.env):
      #close the environment
       
   def _get_reward(self):
+    if self.status=   :
+      
+    elif self.status=  :
+      
+      
     #define conditions needed to obtain reward signal
