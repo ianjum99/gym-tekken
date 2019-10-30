@@ -39,7 +39,7 @@ class tekkenEnv(gym.env):
     #render the environment to a screen
     pass
              
-  def close(self):
+  def close(self): 
      #close the environment
       
   def _get_reward(self):
